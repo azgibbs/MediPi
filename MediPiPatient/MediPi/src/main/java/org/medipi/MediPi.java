@@ -442,7 +442,7 @@ public class MediPi extends Application implements UnlockConsumer {
                         for (int i = 0; i < mac.length; i++) {
                             macAdd.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? ":" : ""));
                         }
-                        macAddress = macAdd.toString().toLowerCase();
+                        macAddress = "94:65:9c:46:61:fd";
                         System.setProperty("medipi.device.macaddress", macAddress);
                         System.out.print(macAddress);
                     }
