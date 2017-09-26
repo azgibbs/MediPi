@@ -49,11 +49,13 @@ public class WIFIConnectionMonitor
         if (os.contains("win")) {
             OS = "WIN";
             // NO CODE YET TO DETECT WIFI CONNECTION FOR Windows systems therefore throw exception
-            throw new Exception("Detection of WIFI connection not currently supported for Windows systems - see class: " + this.getClass().getName());
+            //throw new Exception("Detection of WIFI connection not currently supported for Windows systems - see class: " + this.getClass().getName());
         } else if (os.contains("nix") || os.contains("nux") || os.contains("aix")) {
             OS = "UNIX";
         } else {
-            throw new Exception("The MediPi WIFI Manager does not currently support " + os);
+            // todo: break here!
+            OS = "UNIX";
+            //throw new Exception("The MediPi WIFI Manager does not currently support " + os);
         }
     }
 
@@ -61,6 +63,8 @@ public class WIFIConnectionMonitor
     public void run() {
         System.out.println("WIFIConnection run at: " + Instant.now());
         if (OS.equals("WIN")) {
+            wifiProperty.set(MediPi.WIFICONNECTED);
+            medipi.wifiSync.set(true);
         } else if (OS.equals("UNIX")) {
             try {
                 Process wifiConnectionProcess = Runtime.getRuntime().exec("iwgetid -r");
