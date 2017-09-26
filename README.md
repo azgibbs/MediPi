@@ -1,3 +1,24 @@
+# Note for hack week - getting this running on Windows
+
+To get MediPi Patient running on Windows, edit the following file:
+    MediPiPatient/config/set-all-configurations.sh
+ 
+Change:
+
+    configDirectory=$PWD
+
+To your config dir in the Windows format, something like this:
+
+    configDirectory='c:/Users/gareth/src/MediPi/MediPiPatient/config'
+
+Then run the script in your git bash shell (from inside the config dir)
+
+    bash set-all-configurations.sh
+
+
+Install NetBeans and import the dirs in the project, build them. You should now be able to run MediPiPatient and look at the screens
+
+
 # MediPi Open Source Remote Patient Monitoring/Telehealth System
 
 MediPi is a clinically lead, community based, open platform development aimed at addressing those factors which have caused telehealth to be economically unattractive.
